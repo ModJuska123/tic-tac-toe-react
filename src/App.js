@@ -43,6 +43,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <h1>Tic Tack Toe Game</h1>
       <div className="gameboard">
         {cells.map((cell, index) => 
           <Cell 
@@ -59,14 +60,13 @@ const App = () => {
         )}
       </div>
       <p>{ winningMessage || message }</p>
+      <p className="instructions">Click reset to start a new game.</p>
+
       <button className="reset" onClick={() => {
         setCells(["", "", "", "", "", "", "", "", ""])
         setWinningMessage(null)
         setGo("circle")
       }}>Reset</button>
-      <p className="instructions">Click on a square to place your mark.</p>
-      <p className="instructions">The first player to get three in a row wins!</p>
-      <p className="instructions">Click reset to start a new game.</p>
     </div>
   )
 }
