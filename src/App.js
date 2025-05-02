@@ -7,7 +7,7 @@ const App = () => {
   const[winningMessage, setWinningMessage] = useState(null);
  
 
-  const message = "it is now " + go + "'s go.";
+  const message = "It is now " + go + "'s go.";
 
   const checkScore = () => {
     const winningCombinations = [
