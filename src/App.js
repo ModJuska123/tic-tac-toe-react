@@ -1,10 +1,11 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Cell from "./components/Cell";
 
 const App = () => {
   const[cells, setCells] = useState(["", "", "", "", "", "", "", "", ""]);
   const[go, setGo] = useState("circle");
   const[winningMessage, setWinningMessage] = useState(null);
+ 
 
   const message = "it is now " + go + "'s go.";
 
@@ -18,7 +19,8 @@ const App = () => {
       [2, 5, 8],
       [0, 4, 8],
       [2, 4, 6]
-    ]
+    ];
+    
       winningCombinations.forEach(array => {
         let circleWins = array.every(cell => cells[cell] === "circle") 
         if (circleWins) {
@@ -53,6 +55,7 @@ const App = () => {
           setCells={setCells}
           winningMessage={winningMessage}
           />
+          
         )}
       </div>
       <p>{ winningMessage || message }</p>
