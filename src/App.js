@@ -66,7 +66,7 @@ const App = () => {
         setCells(["", "", "", "", "", "", "", "", ""])
         setWinningMessage(null)
         setGo("circle")
-      }}>Reset</button>
+      }}>Start New Game</button>
     </div>
   )
 }
