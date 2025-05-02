@@ -1,3 +1,10 @@
+.body{
+  background-color: rgb(107, 152, 255);
+  font-family: Arial, sans-serif;
+  color: rgb(241, 255, 255);
+  font-size: 20px;
+}
+
 .app{
   margin: 0;
   padding: 0;
