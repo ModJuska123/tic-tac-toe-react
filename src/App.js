@@ -59,6 +59,14 @@ const App = () => {
         )}
       </div>
       <p>{ winningMessage || message }</p>
+      <button className="reset" onClick={() => {
+        setCells(["", "", "", "", "", "", "", "", ""])
+        setWinningMessage(null)
+        setGo("circle")
+      }}>Reset</button>
+      <p className="instructions">Click on a square to place your mark.</p>
+      <p className="instructions">The first player to get three in a row wins!</p>
+      <p className="instructions">Click reset to start a new game.</p>
     </div>
   )
 }
