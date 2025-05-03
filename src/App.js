@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Cell from "./components/Cell";
+import Strike from "./components/Strike";
 
 const App = () => {
   const[cells, setCells] = useState(["", "", "", "", "", "", "", "", ""]);
   const[go, setGo] = useState("circle");
   const[winningMessage, setWinningMessage] = useState(null);
+  const [winningStrike, setWinningStrike] = useState(null);
  
 
   const message = "It is now " + go + "'s go.";
@@ -21,20 +23,18 @@ const App = () => {
       [2, 4, 6]
     ];
     
-      winningCombinations.forEach(array => {
-        let circleWins = array.every(cell => cells[cell] === "circle") 
-        if (circleWins) {
-          setWinningMessage("Circle has won!")
-          return;
-        }
-          })
-      winningCombinations.forEach(array => {
-        let crossWins = array.every(cell => cells[cell] === "cross") 
-        if (crossWins) {
-          setWinningMessage("Cross has won!")
-          return;
-        }
-          })
+    for (const array of winningCombinations) {
+      if (array.every(index => cells[index] === "circle")) {
+        setWinningMessage("Circle has won!");
+        setWinningStrike(array);
+        return;
+      }
+      if (array.every(index => cells[index] === "cross")) {
+        setWinningMessage("Cross has won!");
+        setWinningStrike(array);
+        return;
+      }
+    }
   }
 
     useEffect(() => {
@@ -56,8 +56,8 @@ const App = () => {
           setCells={setCells}
           winningMessage={winningMessage}
           />
-          
         )}
+        <Strike winningStrike={winningStrike}/>  
       </div>
       <p>{ winningMessage || message }</p>
       <p className="instructions">Click reset to start a new game.</p>
@@ -66,6 +66,7 @@ const App = () => {
         setCells(["", "", "", "", "", "", "", "", ""])
         setWinningMessage(null)
         setGo("circle")
+        setWinningStrike(null)
       }}>Start New Game</button>
     </div>
   )

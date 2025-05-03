@@ -13,15 +13,15 @@
 
 }
 .gameboard{
-  width: 330px;
-  height: 330px;
+  width: 390px;
+  height: 390px;
   display: flex;
   flex-wrap: wrap;
   border: solid 1px black;
 }
 .square{
-  width: 110px;
-  height: 110px;
+  width: 130px;
+  height: 130px;
   border: solid 1px black;
   background-color: rgb(241, 255, 255);
   box-sizing: border-box;
@@ -67,4 +67,71 @@
   border: none;
   border-radius: 3px;
   cursor: pointer;
+}
+
+.gameboard {
+  position: relative;
+}
+
+.strike {
+  position: absolute;
+  height: 6px;
+  background-color: darkorange;
+  /* animacijos ar perėjimai – pagal norą */
+}
+
+/* Pvz. horizontalios linijos */
+.strike-row-1 {
+  top: 16.66%;
+  left: 10px;
+  width: 95%;
+}
+.strike-row-2 {
+  top: 50%;
+  left: 10px;
+  width: 95%;
+}
+.strike-row-3 {
+  top: 83.33%;
+  left: 10px;
+  width: 95%;
+}
+
+/* Vertikalios linijos */
+.strike-col-1 {
+  top: 10px;
+  left: 16.66%;
+  height: 95%;
+  width: 5px;
+}
+.strike-col-2 {
+  top: 10px;
+  left: 50%;
+  height: 95%;
+  width: 5px;
+}
+.strike-col-3 {
+  top: 10px;
+  left: 83.33%;
+  height: 95%;
+  width: 5px;
+}
+
+/* Diagonalės */
+.strike-diag-1 {
+  top: 10px;
+  left: 10px;
+  width: 134%;
+  height: 5px;
+  transform: rotate(45deg);
+  transform-origin: top left;
+}
+
+.strike-diag-2 {
+  top: 10px;
+  right: 10px;
+  width: 134%;
+  height: 5px;
+  transform: rotate(-45deg);
+  transform-origin: top right;
 }
